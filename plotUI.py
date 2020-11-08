@@ -106,8 +106,10 @@ class MainWindow(QtWidgets.QMainWindow):
     def onSubmit(self):
         self.canvas.axes.cla()  # Clear the canvas.
         self.canvas.draw()
+        # self.statusLabel.setText("Running...")
+        self.resizeItems()
         self.update_network()
-        print(f"T: {MAC.T}, N: {MAC.N}, Nsims: {MAC.Nsims}, Samples: {MAC.Samples}")
+        # print(f"T: {MAC.T}, N: {MAC.N}, Nsims: {MAC.Nsims}, Samples: {MAC.Samples}")
         meanS, s = self.run_simulation()
         self.plot_res(meanS/MAC.T, s)
 
